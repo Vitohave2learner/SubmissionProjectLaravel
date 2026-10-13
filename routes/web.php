@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -74,4 +75,6 @@ Route::permanentRedirect('/katalog-lama', '/info');
 // Dieksekusi bila tidak ada route yang cocok (letakkan paling bawah)
 Route::fallback(function () {
     return response('Maaf, halaman yang Anda cari tidak tersedia.', 404);
-}); 
+});
+
+Route::resource('produk', ProdukController::class);
